@@ -16,8 +16,9 @@ variables as undefined and copies the complete function.
 
 ```javascript
 
-var x -> undefined
-
-function getName() {console.log("Hello World");} // gets copied entirely
+var x = 10; // x will be undefined before execution
+function getName() {
+    console.log("Hello World");
+} // gets copied entirely
 
 ```
