@@ -151,6 +151,49 @@ Example again! Let's say we execute this code
   const c = 30; //block
 }
 ```
+
 ### Proof
+
 <img src="assets/scopes.jpg" alt='Example of Scopes'>
 
+## Shadowing
+
+It is a concept of js where a variable declared using `var` hides the global scoped variable
+
+```js
+var a = 10;
+{
+  var a = 100; // this 'a' shadows the global scoped 'a'
+}
+console.log(a); // results 100
+```
+
+But `let` and `const` works differently because they do not exist outside the current scope
+
+```js
+let b = 10;
+{
+  let b = 100;
+}
+console.log(b); // results 10
+
+let c = 1;
+{
+  let c = 10;
+}
+console.log(c); // results 1
+```
+
+### Illegal Shadowing
+
+It is when we try to scope a `let` declared variable using a `var`.
+
+```js
+let a = 100;
+{
+  var a = 10; // Error! Illegal Shadowing
+  let a = 2; // works just fine!
+}
+```
+
+`SyntaxError: Identifier 'a' has already been declared`
