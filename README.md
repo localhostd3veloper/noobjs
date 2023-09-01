@@ -93,7 +93,7 @@ var a = 10; // Redeclaration of indentifier 'a'
 ```
 
 Resulting in
-`SyntaxError: identifier 'a' has already been declared.`
+`SyntaxError: Identifier 'a' has already been declared.`
 
 ```js
 var a = 10;
@@ -104,5 +104,49 @@ No Error is there, redeclarations are allowed in `var`
 
 ### How to avoid temporal dead zone?
 
-*- Always put your declrations on the top of the file so that as soon as it starts executing it will get all the variables declared.*
-*- By doing this we can shrinking the Dead Zone Window close to zero by moving all the declarations at the top.*
+_- Always put your declrations on the top of the file so that as soon as it starts executing it will get all the variables declared._
+_- By doing this we can shrinking the Dead Zone Window close to zero by moving all the declarations at the top._
+
+## Block in Javascript
+
+Block is a set of lines covered by `{}` to provide it as a single statement.
+
+##### Example
+
+```js
+if (true) console.log("Single Statement");
+```
+
+That's the reason we dont need Curly Braces `{}` in `if condition` because it's a **Single Statement**
+We use `{}` to provide a block, to have multiple statements
+
+##### Example
+
+```js
+if(condition){
+  line1;
+  line2;
+  ...
+} else {...}
+
+function hello(){
+ line1;
+ line2;
+ ...
+}
+```
+
+## Scopes in Block v/s Global
+
+`let` & `const` are block scoped and `var` is global scoped.
+
+How?
+Example again! Let's say we execute this code
+
+```js
+{
+  var a = 10; //global
+  let b = 20; //block
+  const c = 30; //block
+}
+```
