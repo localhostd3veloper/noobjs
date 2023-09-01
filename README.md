@@ -17,7 +17,7 @@ Code is also called `Thread of Execution`
 
 ## Hoisting
 
-JS Code Hoisting is when a javascript code executes then *even before the execution* of the first line of the code it scans the entire code for declarations of functions & variables and Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
+JS Code Hoisting is when a javascript code executes then _even before the execution_ of the first line of the code it scans the entire code for declarations of functions & variables and Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
 
 ```javascript
 var x = 10; // x will be undefined before execution
@@ -82,17 +82,18 @@ instead they are stored in a **different memory space than global** called `SCRI
 Here, the above example shows that until the variable `c` or `a` is assigned any value, it will stay in a special zone called as `Temporal Dead Zone` 💀
 
 ### let v/s const v/s var
+
 1. In case of `let` and `const` there are no redeclarations allowed.
 2. Not even the console will work 😅
-
 
 ```js
 console.log("This will not print");
 let a = 10;
-var a = 10;
+var a = 10; // Redeclaration of indentifier 'a'
 ```
 
-`SyntaxError: identifier 'a' has already been declared`
+Resulting in
+`SyntaxError: identifier 'a' has already been declared.`
 
 ```js
 var a = 10;
@@ -100,3 +101,8 @@ var a = "Please like this article";
 ```
 
 No Error is there, redeclarations are allowed in `var`
+
+### How to avoid temporal dead zone?
+
+*- Always put your declrations on the top of the file so that as soon as it starts executing it will get all the variables declared.*
+*- By doing this we can shrinking the Dead Zone Window close to zero by moving all the declarations at the top.*
