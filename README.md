@@ -31,6 +31,7 @@ Well as javascript creates a global execution context,
 It allocates memory to all the declared variables & functions
 by default, it allocates `undefined` to it. and when the variable assignment line is executed it assigns the respective value to it.
 
+and when JS tries to find a variable that was not found in the initial scan it gives the
+`Reference error -> x is not defined`
+
 ## Next
-
-
