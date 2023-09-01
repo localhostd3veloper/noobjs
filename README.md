@@ -51,7 +51,7 @@ var a = 10;
 console.log(x); //here x is not defined in the scope
 ```
 
-`Reference error -> x is not defined`
+<span style="color:red;">`ReferenceError: x is not defined` </span>
 
 ## Temporal Dead Zone -
 
@@ -67,7 +67,7 @@ var b = 10;
 `ReferenceError: cannot access 'a' before initialization`
 
 let and const are **not** on the global object
-instead they are stored in a **different memory space than global** called `SCRIPT` and since the `console.log` points to the `global` object it does not find `let a = 10` in it.
+instead they are stored in a **different memory space than global** called `SCRIPT` and since the `console.log` points to the `global` object, it does not find `let a = 10;` in it.
 
 ##### Example for Temporal Dead Zone
 
@@ -140,7 +140,8 @@ function hello(){
 
 `let` & `const` are block scoped and `var` is global scoped.
 
-How?
+#### How?
+
 Example again! Let's say we execute this code
 
 ```js
@@ -150,3 +151,6 @@ Example again! Let's say we execute this code
   const c = 30; //block
 }
 ```
+### Proof
+<img src="assets/scopes.jpg" alt='Example of Scopes'>
+
