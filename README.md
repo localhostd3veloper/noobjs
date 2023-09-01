@@ -184,7 +184,7 @@ let c = 1;
 console.log(c); // results 1
 ```
 
-### Illegal Shadowing
+### Illegal Shadowing 😵‍💫
 
 It is when we try to scope a `let` declared variable using a `var`.
 
@@ -197,3 +197,29 @@ let a = 100;
 ```
 
 `SyntaxError: Identifier 'a' has already been declared`
+
+## Closures 😶‍🌫️
+
+A function bundling with its lexical scope is closure.
+
+It's easy with an example
+
+```js
+function first() {
+  var a = 10;
+  function second() {
+    console.log(a);
+  }
+
+  return second;
+}
+...
+let getFunction = first();
+
+/* after this line, instance of 
+first() function is popped out of 
+the call stack */
+...
+getFunction(); // outputs: 10;
+```
+Theorotically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
