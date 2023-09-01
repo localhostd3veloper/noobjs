@@ -9,15 +9,15 @@ _JS is synchronus single-threaded language_
 
 ### How does JS Works?
 
-Inside an execution context -> Memory and Code
+Javascript works inside an execution context,
+they have 2 components namely `Memory` and `Code`
 
 Memory is also called as `Variable Environment`
 Code is also called `Thread of Execution`
 
 ## Hoisting
 
-JS Code Hoisting is when a javascript code executes then even before the execution of the first line of the code it scans the entire code for declarations of functions & variables and Allocates memory for it in the Global Execution Context as
-variables as undefined and copies the complete function.
+JS Code Hoisting is when a javascript code executes then *even before the execution* of the first line of the code it scans the entire code for declarations of functions & variables and Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
 
 ```javascript
 var x = 10; // x will be undefined before execution
