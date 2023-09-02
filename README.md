@@ -216,10 +216,68 @@ function first() {
 ...
 let getFunction = first();
 
-/* after this line, instance of 
-first() function is popped out of 
+/* after this line, instance of
+first() function is popped out of
 the call stack */
 ...
 getFunction(); // outputs: 10;
 ```
+
 Theorotically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
+
+## Tricky Interview Question on setTimeout and Closures
+
+> Problem Statement - Print numbers from 1 to 5 with an interval of 1 second each.
+
+You might get the confidence that this is a simple question and will come up with a code looking like this 👇
+
+```js
+for (var i = 0; i <= 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, i * 1000);
+}
+```
+
+Above code would go wrong [(why?)](#identifying-the-problem-and-the-fix) by printing 6 in each line. and can be fixed by just using a `let` instead of a `var`
+
+### What if?
+
+The interviewer asked you to do it with `var` only?
+
+Relax don't sweat out. I'll tell you what to code and explain it how it works.
+
+Here's the code that you're interested in 😆
+explaination's below it.
+
+```javascript
+for (var i = 0; i <= 5; i++) {
+  // used var
+  function closure(i) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+    closure(i);
+  }
+}
+```
+
+### Identifying the problem
+
+- Well the problem with the previous code using `var` was js maintains an execution context and the way the `setTimeout()` works is it stores the callback funtion and attaches a timer to it and goes to the next line.
+
+- as the variable `i` does not exists in the callback function it points to the outside reference of `i` from the `for` loop.
+
+- Now it creates 5 copies of functions with the timer and now by the timer expires js does not wait, `for` loop ends. it is just too late. the value of `i` becomes `6` at last.
+
+### Fixing the problem
+
+#### Fix 1: using let declaration
+
+We have discussed above that `let` is block scoped, the answer lies within that line.
+
+> When we use the `let` it creates separate blocks for its memory allocation. whereas in case of `var` all 5 callback functios were pointing to the same memory space available in the global execution context
+
+#### Fix 2: using closures or functions
+
+This will actually provide them a new copy of `i` in it everytime the `setTimeout()` was called
