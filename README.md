@@ -281,3 +281,93 @@ We have discussed above that `let` is block scoped, the answer lies within that 
 #### Fix 2: using closures or functions
 
 This will actually provide them a new copy of `i` in it everytime the `setTimeout()` was called
+
+## Types of Writing functions
+
+### Function Declration
+
+```js
+function hello() {
+  console.log("Like This Blog and star the repo");
+}
+```
+
+### Function Expression
+
+```js
+const callAPI = async function () {
+  const data = fetch("https://somesite.io/get/data/1232");
+  return data;
+};
+```
+
+## Parameters v/s Arguments
+
+```js
+function greet(name) {
+  // identifier name is a parameter
+  console.log(`Hello ${name}`);
+}
+
+greet("Gautam"); // "Gautam" is an Argument
+```
+
+## First Class Functions
+
+- functions having functions in their `arguments`.
+
+- The ability of functions to be used as values and be able to return and pass as `arugments` to another `function`.
+
+```js
+function first(doesSomething) {
+  doesSomething();
+}
+
+first(() => {
+  console.log("hello World");
+});
+```
+
+## Callback Functions in JS
+
+These functions are sent in the arguments of another functions and are used respectively whenever needed,
+
+```js
+setTimeout(function () {
+  console.log("Timer");
+}, 5000);
+function x(y) {
+  console.log("x");
+}
+
+x(function y() {
+  console.log("y");
+});
+```
+
+### Arrow Functions
+
+- These functions are introduced in ES6 or EcmaScript 6 (2015)
+- They just allow us to write shorter syntaxes
+
+##### Before
+
+```js
+function incrementCounter() {
+  count++;
+  setData("");
+}
+```
+
+##### After
+```js
+const incrementCounter = () => {
+  count++;
+  setData("");
+};
+```
+Above method allows us to write functions without using the `function` keyword.
+
+---
+
+If you liked reading uptill here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
