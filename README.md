@@ -1,23 +1,28 @@
-# noobjs
+#Introduction
+- Well, we all start somewhere to start learning `JavaScript`, I wish this kind of beginner's guide would be available for me to get the very basics of JS.
 
-## What is JS
+- If you are not new to javascript, this will be a perfect read to brush up your skills or building a stronger foundation.
 
-_JS is synchronus single-threaded language_
+Enjoy Reading 
+## What is Javascript
 
-`Synchronus` - It executes its code line by line.
+_JS is synchronous single-threaded language_
+
+`Synchronous` - It executes its code line by line.
 `Single-Threaded` - Executes one line at a time.
 
 ### How does JS Works?
 
-Javascript works inside an execution context,
+- Javascript works inside an execution context,
 they have 2 components namely `Memory` and `Code`
 
-Memory is also called as `Variable Environment`
-Code is also called `Thread of Execution`
+- Memory is also called as `Variable Environment`
+- Code is also called `Thread of Execution`
 
 ## Hoisting
 
-JS Code Hoisting is when a javascript code executes then _even before the execution_ of the first line of the code it scans the entire code for declarations of functions & variables and Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
+- JS Code Hoisting is when a javascript code executes then _even before the execution_ of the first line of the code it scans the entire code for declarations of functions & variables 
+- Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
 
 ```javascript
 var x = 10; // x will be undefined before execution
@@ -29,11 +34,11 @@ function getName() {
 
 ## Undefined vs Not Defined
 
-Well as javascript creates a global execution context,
-It allocates memory to all the declared variables & functions
-by default, it allocates `undefined` to it. and when the variable assignment line is executed it assigns the respective value to it.
+- Well as javascript creates a global execution context,
+- It allocates memory to all the declared variables & functions
+- By default, it allocates `undefined` to it. and when the variable assignment line is executed it assigns the respective value to it.
 
-#### Eg- `undefined`
+### Eg `undefined`
 
 ```javascript
 var a;
@@ -42,16 +47,15 @@ console.log(a === undefined); //true
 
 ### Not Defined
 
-When JS tries to find a variable that was not found in the initial scan it gives the. imlpies that there was not memory allocated to the variable.
+When JS tries to find a variable that was not found in the initial scan it gives the. implies that there was not memory allocated to the variable.
 
-#### Eg - `Not Defined`
+#### Eg `Not Defined`
 
 ```javascript
 var a = 10;
 console.log(x); //here x is not defined in the scope
 ```
-
-<span style="color:red;">`ReferenceError: x is not defined` </span>
+`ReferenceError: x is not defined`
 
 ## Temporal Dead Zone -
 
@@ -66,10 +70,10 @@ var b = 10;
 
 `ReferenceError: cannot access 'a' before initialization`
 
-let and const are **not** on the global object
+`let` and `const` are **not** on the global object
 instead they are stored in a **different memory space than global** called `SCRIPT` and since the `console.log` points to the `global` object, it does not find `let a = 10;` in it.
 
-##### Example for Temporal Dead Zone
+### Example for Temporal Dead Zone
 
 ```js
 1. let c;
@@ -83,13 +87,13 @@ Here, the above example shows that until the variable `c` or `a` is assigned any
 
 ### let v/s const v/s var
 
-1. In case of `let` and `const` there are no redeclarations allowed.
+1. In case of `let` and `const` there are no re declarations allowed.
 2. Not even the console will work 😅
 
 ```js
 console.log("This will not print");
 let a = 10;
-var a = 10; // Redeclaration of indentifier 'a'
+var a = 10; // Redeclaration of identifier 'a'
 ```
 
 Resulting in
@@ -100,7 +104,7 @@ var a = 10;
 var a = "Please like this article";
 ```
 
-No Error is there, redeclarations are allowed in `var`
+No Error is there, re declarations are allowed in `var`
 
 ### How to avoid temporal dead zone?
 
@@ -111,7 +115,7 @@ _- By doing this we can shrinking the Dead Zone Window close to zero by moving a
 
 Block is a set of lines covered by `{}` to provide it as a single statement.
 
-##### Example
+### Example
 
 ```js
 if (true) console.log("Single Statement");
@@ -120,7 +124,7 @@ if (true) console.log("Single Statement");
 That's the reason we dont need Curly Braces `{}` in `if condition` because it's a **Single Statement**
 We use `{}` to provide a block, to have multiple statements
 
-##### Example
+### Example
 
 ```js
 if(condition){
@@ -140,7 +144,7 @@ function hello(){
 
 `let` & `const` are block scoped and `var` is global scoped.
 
-#### How?
+### How?
 
 Example again! Let's say we execute this code
 
@@ -154,7 +158,7 @@ Example again! Let's say we execute this code
 
 ### Proof
 
-<img src="assets/scopes.jpg" alt='Example of Scopes'>
+![Browser Console Proof](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jygv5xqj7lwd6n6rer52.jpg)
 
 ## Shadowing
 
@@ -216,14 +220,14 @@ function first() {
 ...
 let getFunction = first();
 
-/* after this line, instance of
-first() function is popped out of
+/* after this line, instance of 
+first() function is popped out of 
 the call stack */
 ...
 getFunction(); // outputs: 10;
 ```
+Theoretically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
 
-Theorotically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
 
 ## Tricky Interview Question on setTimeout and Closures
 
@@ -248,7 +252,7 @@ The interviewer asked you to do it with `var` only?
 Relax don't sweat out. I'll tell you what to code and explain it how it works.
 
 Here's the code that you're interested in 😆
-explaination's below it.
+with the explaination
 
 ```javascript
 for (var i = 0; i <= 5; i++) {
@@ -264,7 +268,7 @@ for (var i = 0; i <= 5; i++) {
 
 ### Identifying the problem
 
-- Well the problem with the previous code using `var` was js maintains an execution context and the way the `setTimeout()` works is it stores the callback funtion and attaches a timer to it and goes to the next line.
+- Well the problem with the previous code using `var` was js maintains an execution context and the way the `setTimeout()` works is it stores the callback function and attaches a timer to it and goes to the next line.
 
 - as the variable `i` does not exists in the callback function it points to the outside reference of `i` from the `for` loop.
 
@@ -276,15 +280,15 @@ for (var i = 0; i <= 5; i++) {
 
 We have discussed above that `let` is block scoped, the answer lies within that line.
 
-> When we use the `let` it creates separate blocks for its memory allocation. whereas in case of `var` all 5 callback functios were pointing to the same memory space available in the global execution context
+> When we use the `let` it creates separate blocks for its memory allocation. whereas in case of `var` all 5 `functions` were pointing to the same memory space available in the global execution context
 
 #### Fix 2: using closures or functions
 
 This will actually provide them a new copy of `i` in it everytime the `setTimeout()` was called
 
-## Types of Writing functions
+## Types of Writing Functions
 
-### Function Declration
+### Function Declaration
 
 ```js
 function hello() {
@@ -301,7 +305,7 @@ const callAPI = async function () {
 };
 ```
 
-## Parameters v/s Arguments
+### Parameters v/s Arguments
 
 ```js
 function greet(name) {
@@ -312,11 +316,11 @@ function greet(name) {
 greet("Gautam"); // "Gautam" is an Argument
 ```
 
-## First Class Functions
+### First Class Functions
 
 - functions having functions in their `arguments`.
 
-- The ability of functions to be used as values and be able to return and pass as `arugments` to another `function`.
+- The ability of functions to be used as values and be able to return and pass as `arguments` to another `function`.
 
 ```js
 function first(doesSomething) {
@@ -328,8 +332,7 @@ first(() => {
 });
 ```
 
-## Callback Functions in JS
-
+### Callback Functions in JS
 These functions are sent in the arguments of another functions and are used respectively whenever needed,
 
 ```js
@@ -345,12 +348,13 @@ x(function y() {
 });
 ```
 
+
 ### Arrow Functions
 
 - These functions are introduced in ES6 or EcmaScript 6 (2015)
 - They just allow us to write shorter syntaxes
 
-##### Before
+#### Before
 
 ```js
 function incrementCounter() {
@@ -359,7 +363,7 @@ function incrementCounter() {
 }
 ```
 
-##### After
+#### After
 ```js
 const incrementCounter = () => {
   count++;
@@ -370,4 +374,5 @@ Above method allows us to write functions without using the `function` keyword.
 
 ---
 
-If you liked reading uptill here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
+If you liked reading till here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
+
