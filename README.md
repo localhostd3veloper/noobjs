@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 - Well, we all start somewhere to start learning `JavaScript`, I wish this kind of beginner's guide would be available for me to get the very basics of JS.
 
 - If you are not new to javascript, this will be a perfect read to brush up your skills or building a stronger foundation.
