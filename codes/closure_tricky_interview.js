@@ -10,23 +10,23 @@ function printNumber() {
   }
 }
 
-printNumber();
+// printNumber();
 
 // it can be fixed with using a let inside the for loop
 // what if the interviwer asked to do it just by using var only?
 
 function printUsingClosure() {
   for (var index = 1; index <= 5; index++) {
-    function closure(index) {
+    const closure = (i) => {
       setTimeout(function () {
-        console.log(index);
-      }, index * 1000);
+        console.log(i);
+      }, i * 12000);
     }
     closure(index);
   }
 }
 
-// printUsingClosure();
+printUsingClosure();
 
 // explained in the readme.
 
