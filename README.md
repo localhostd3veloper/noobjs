@@ -1,9 +1,11 @@
 # Introduction
+
 - Well, we all start somewhere to start learning `JavaScript`, I wish this kind of beginner's guide would be available for me to get the very basics of JS.
 
 - If you are not new to javascript, this will be a perfect read to brush up your skills or building a stronger foundation.
 
-Enjoy Reading 
+Enjoy Reading
+
 ## What is Javascript
 
 _JS is synchronous single-threaded language_
@@ -14,21 +16,21 @@ _JS is synchronous single-threaded language_
 ### How does JS Works?
 
 - Javascript works inside an execution context,
-they have 2 components namely `Memory` and `Code`
+  they have 2 components namely `Memory` and `Code`
 
 - Memory is also called as `Variable Environment`
 - Code is also called `Thread of Execution`
 
 ## Hoisting
 
-- JS Code Hoisting is when a javascript code executes then _even before the execution_ of the first line of the code it scans the entire code for declarations of functions & variables 
+- JS Code Hoisting is when a javascript code executes then _even before the execution_ of the first line of the code it scans the entire code for declarations of functions & variables
 - Allocates memory for it in the `Global Execution Context` as variables/identifiers as `undefined` and creates a reference in case of `functions`.
 
 ```javascript
 var x = 10; // x will be undefined before execution
 
 function getName() {
-  console.log("Hello World");
+  console.log('Hello World');
 } // gets copied entirely
 ```
 
@@ -55,6 +57,7 @@ When JS tries to find a variable that was not found in the initial scan it gives
 var a = 10;
 console.log(x); //here x is not defined in the scope
 ```
+
 `ReferenceError: x is not defined`
 
 ## Temporal Dead Zone -
@@ -91,7 +94,7 @@ Here, the above example shows that until the variable `c` or `a` is assigned any
 2. Not even the console will work 😅
 
 ```js
-console.log("This will not print");
+console.log('This will not print');
 let a = 10;
 var a = 10; // Redeclaration of identifier 'a'
 ```
@@ -101,7 +104,7 @@ Resulting in
 
 ```js
 var a = 10;
-var a = "Please like this article";
+var a = 'Please like this article';
 ```
 
 No Error is there, re declarations are allowed in `var`
@@ -118,7 +121,7 @@ Block is a set of lines covered by `{}` to provide it as a single statement.
 ### Example
 
 ```js
-if (true) console.log("Single Statement");
+if (true) console.log('Single Statement');
 ```
 
 That's the reason we dont need Curly Braces `{}` in `if condition` because it's a **Single Statement**
@@ -220,14 +223,14 @@ function first() {
 ...
 let getFunction = first();
 
-/* after this line, instance of 
-first() function is popped out of 
+/* after this line, instance of
+first() function is popped out of
 the call stack */
 ...
 getFunction(); // outputs: 10;
 ```
-Theoretically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
 
+Theoretically it should not work as the identifier `a` needs to be outside the scope BUT when the `second()` function is returned it comes with its lexical scope as well. That's what exactly closure is.
 
 ## Tricky Interview Question on setTimeout and Closures
 
@@ -292,7 +295,7 @@ This will actually provide them a new copy of `i` in it everytime the `setTimeou
 
 ```js
 function hello() {
-  console.log("Like This Blog and star the repo");
+  console.log('Like This Blog and star the repo');
 }
 ```
 
@@ -300,7 +303,7 @@ function hello() {
 
 ```js
 const callAPI = async function () {
-  const data = fetch("https://somesite.io/get/data/1232");
+  const data = fetch('https://somesite.io/get/data/1232');
   return data;
 };
 ```
@@ -313,7 +316,7 @@ function greet(name) {
   console.log(`Hello ${name}`);
 }
 
-greet("Gautam"); // "Gautam" is an Argument
+greet('Gautam'); // "Gautam" is an Argument
 ```
 
 ### First Class Functions
@@ -328,26 +331,26 @@ function first(doesSomething) {
 }
 
 first(() => {
-  console.log("hello World");
+  console.log('hello World');
 });
 ```
 
 ### Callback Functions in JS
+
 These functions are sent in the arguments of another functions and are used respectively whenever needed,
 
 ```js
 setTimeout(function () {
-  console.log("Timer");
+  console.log('Timer');
 }, 5000);
 function x(y) {
-  console.log("x");
+  console.log('x');
 }
 
 x(function y() {
-  console.log("y");
+  console.log('y');
 });
 ```
-
 
 ### Arrow Functions
 
@@ -359,20 +362,26 @@ x(function y() {
 ```js
 function incrementCounter() {
   count++;
-  setData("");
+  setData('');
 }
 ```
 
 #### After
+
 ```js
 const incrementCounter = () => {
   count++;
-  setData("");
+  setData('');
 };
 ```
+
 Above method allows us to write functions without using the `function` keyword.
 
 ---
 
-If you liked reading till here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
+Please read More
 
+[Javascript Sorting](./JavascriptSort.md)
+[Map Filter Reduce](./MapFilterReduce.md)
+
+If you liked reading till here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
