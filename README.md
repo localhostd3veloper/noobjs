@@ -355,7 +355,7 @@ x(function y() {
 ### Arrow Functions
 
 - These functions are introduced in ES6 or EcmaScript 6 (2015)
-- They just allow us to write shorter syntaxes
+- They just allow us to write shorter syntaxes without using the keyword `function`
 
 #### Before
 
@@ -379,9 +379,10 @@ Above method allows us to write functions without using the `function` keyword.
 
 ---
 
-Please read More
+### Read More
 
-[Javascript Sorting](./JavascriptSort.md)
-[Map Filter Reduce](./MapFilterReduce.md)
+- [Javascript Sorting](./JavascriptSort.md)
 
-If you liked reading till here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
+- [Map Filter Reduce](./MapFilterReduce.md)
+
+>If you liked reading till here. please like this blog and go to [github](https://www.github.com/localhostd3veloper/noobjs) for the codes and please star the repository.
